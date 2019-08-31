@@ -2,12 +2,12 @@ const path = require('path');
 const fs   = require('fs');
 const solc = require('solc');
 
-const inboxPath = path.resolve(__dirname, 'contracts', 'inbox.sol');
+const lotteryPath = path.resolve(__dirname, 'contracts', 'Lottery.sol');
 
 const compilerInput = {
     language: "Solidity",
     sources: {
-        'inbox': { content: fs.readFileSync(inboxPath, 'utf8') }
+        'Lottery': { content: fs.readFileSync(lotteryPath, 'utf8') }
     },
     settings: {
       outputSelection: {
@@ -29,6 +29,6 @@ if (compiledContract.errors) {
 else {
 //  console.log(compiledContract);
 //  console.log(compiledContract.contracts['inbox'].Inbox.evm.bytecode.object);
-  module.exports = compiledContract.contracts['inbox'].Inbox;
+  module.exports = compiledContract.contracts['Lottery'].Lottery;
 
 }
